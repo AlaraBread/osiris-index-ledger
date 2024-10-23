@@ -1,9 +1,10 @@
 import grpc, { ServiceError } from "@grpc/grpc-js";
-import { server, target } from "../../main.js";
+import { server, serverUp, target } from "../../main.js";
 import { core } from "../../generated/core/core.js";
 
 let client: core.IndexLedgerClient;
-beforeAll(() => {
+beforeAll(async () => {
+	await serverUp;
 	client = new core.IndexLedgerClient(
 		target,
 		grpc.credentials.createInsecure(),
