@@ -23,6 +23,7 @@ test("get account balance", (done) => {
     // Add mock data to the ledger for testing
     ledger.push(
         new core.Transaction({
+            // Balance = -120
             transaction_id: "txn-123",
             sender: "user1",
             receiver: "user2",
@@ -30,6 +31,7 @@ test("get account balance", (done) => {
             timestamp: "2024-10-20T12:00:00Z",
         }),
         new core.Transaction({
+            // Balance = -120 + 60 = -60
             transaction_id: "txn-124",
             sender: "user2",
             receiver: "user1",
@@ -37,6 +39,7 @@ test("get account balance", (done) => {
             timestamp: "2024-10-20T13:00:00Z",
         }),
         new core.Transaction({
+            // Balance = -60 - 30 = -90
             transaction_id: "txn-125",
             sender: "user1",
             receiver: "user3",
@@ -45,6 +48,7 @@ test("get account balance", (done) => {
         })
     );
 
+    
     client.GetAccountBalance( 
         new core.UserId({ user_id: "user1"}),
         (err, response) => {
@@ -52,6 +56,11 @@ test("get account balance", (done) => {
             expect(err).toBeNull();
             // Expects -90
             expect(response?.value).toEqual(-90.0);
+
+            // Was used to verify what was actually outputted 
+            //console.log("Message: " + response?.value);
+
+            
         }
     );
 });
