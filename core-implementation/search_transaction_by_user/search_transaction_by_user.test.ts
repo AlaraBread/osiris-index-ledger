@@ -51,6 +51,12 @@ test("search transactions by user", (done) => {
             expect(response?.list.length).toEqual(2);
             expect(response?.list[0].transaction_id).toEqual("txn-123");
             expect(response?.list[1].transaction_id).toEqual("txn-125");
+
+            // Testing "
+            //console.log("Length: " + response?.list.length); 
+            //console.log("list[0] = " + response?.list[0].transaction_id);
+            //console.log("list[1] = " + response?.list[1].transaction_id);
+
         }
     );
 });
