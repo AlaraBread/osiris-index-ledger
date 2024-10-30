@@ -12,7 +12,7 @@ export default function addModule(server: grpc.Server) {
 		loadProtoService("proto/core/core.proto", "core", "IndexLedger"),
 		{
 			RecordTransaction: recordTransaction,
-			// Added (dtd35)
+			// dtd35
 			SearchTransactionsByUser: searchTransactionByUser,
 			getAccountBalance: getAccountBalance
 		},
