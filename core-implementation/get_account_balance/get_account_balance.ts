@@ -1,9 +1,8 @@
 import { handleUnaryCall } from "@grpc/grpc-js";
 import { core } from "../../generated/core/core.js";
-// Imports the transaction ledger to search
 import { ledger } from "../search_transaction_by_user/search_transaction_by_user.js";
 
-// Define handler for getAccountBalance, which takes the user id and returns a CurrencyValue response.
+// Define handler for getAccountBalance, which takes the user id and returns a CurrencyValue
 export const getAccountBalance: handleUnaryCall<
 	core.UserId,
 	core.CurrencyValue
