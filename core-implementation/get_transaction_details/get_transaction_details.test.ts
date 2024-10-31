@@ -17,16 +17,18 @@ afterAll(() => {
 //TODO record transaction
 
 test("get a transaction", (done) => {
-    let test_id = "123";
-    client.GetTransactionDetails(
-        new core.TransactionId({
-            transaction_id: test_id
-        }),
-        function (err: ServiceError | null, response: core.Transaction | undefined) {
+	let test_id = "123";
+	client.GetTransactionDetails(
+		new core.TransactionId({
+			transaction_id: test_id,
+		}),
+		function (
+			err: ServiceError | null,
+			response: core.Transaction | undefined,
+		) {
 			done();
 			expect(response?.transaction_id).toEqual(test_id);
-            //TODO make sure response transaction details match recorded transaction details
+			//TODO make sure response transaction details match recorded transaction details
 		},
-
-    );
+	);
 });
