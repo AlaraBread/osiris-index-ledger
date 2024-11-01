@@ -15,6 +15,7 @@ export default function addModule(server: grpc.Server) {
 			SearchTransactionsByUser: searchTransactionByUser,
 			getAccountBalance: getAccountBalance,
 			UpdateTransaction: updateTransaction,
+			GetAccountBalance: getAccountBalance,
 		},
 	);
 	addService(
