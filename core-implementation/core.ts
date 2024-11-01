@@ -4,6 +4,7 @@ import { hello } from "./hello/hello.js";
 import { recordTransaction } from "./record_transaction/record_transaction.js";
 import { searchTransactionByUser } from "./search_transaction_by_user/search_transaction_by_user.js";
 import { getAccountBalance } from "./get_account_balance/get_account_balance.js";
+import { updateTransaction } from "./update_transaction/update_transaction.js"; 
 
 export default function addModule(server: grpc.Server) {
 	addService(
@@ -13,6 +14,8 @@ export default function addModule(server: grpc.Server) {
 			RecordTransaction: recordTransaction,
 			SearchTransactionsByUser: searchTransactionByUser,
 			getAccountBalance: getAccountBalance,
+			UpdateTransaction: updateTransaction,
+
 		},
 	);
 	addService(
