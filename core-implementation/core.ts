@@ -10,7 +10,7 @@ import { calculateTotalLedgerValue } from "./calculate_total_ledger_value/calcul
 import { verifyTransactionIntegrity } from "./verify_transaction_integrity/verify_transaction_integrity.js";
 import { deleteTransaction } from "./delete_transaction/delete_transaction.js";
 import { auditLedger } from "./audit_ledger/audit_ledger.js";
-
+import { listTransactions } from "./list_transactions/list_transactions.js";
 
 export default function addModule(server: grpc.Server) {
 	addService(
@@ -19,6 +19,7 @@ export default function addModule(server: grpc.Server) {
 		{
 			RecordTransaction: recordTransaction,
 			GetTransactionDetails: GetTransactionDetails,
+			ListTransactions: listTransactions,
 			SearchTransactionsByUser: searchTransactionByUser,
 			UpdateTransaction: updateTransaction,
 			CalculateTotalLedgerValue: calculateTotalLedgerValue,
