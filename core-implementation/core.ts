@@ -11,7 +11,6 @@ import { verifyTransactionIntegrity } from "./verify_transaction_integrity/verif
 import { deleteTransaction } from "./delete_transaction/delete_transaction.js";
 import { auditLedger } from "./audit_ledger/audit_ledger.js";
 
-
 export default function addModule(server: grpc.Server) {
 	addService(
 		server,
