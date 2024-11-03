@@ -16,17 +16,31 @@ afterAll(() => {
 });
 //TODO: record 5 transactions
 test("list 5 transactions", (done) => {
+	const test_limit = 5;
 	client.ListTransactions(
 		new core.TransactionLimit({
-			limit: 5,
+			limit: test_limit,
 		}),
 		function (
 			err: ServiceError | null,
 			response: core.TransactionList | undefined,
 		) {
 			done();
-			expect(response?.list.length).toBeLessThanOrEqual(5);
-			//TODO: test requesting more than the max number of records
+			expect(response?.list.length).toEqual(test_limit);
+		},
+	);
+});
+
+test("list default number of transactions (100)", (done) => {
+	const test_limit = 100;
+	client.ListTransactions(
+		new core.TransactionLimit(), // TransactionLimit.limit defaults to 100
+		function (
+			err: ServiceError | null,
+			response: core.TransactionList | undefined,
+		) {
+			done();
+			expect(response?.list.length).toEqual(test_limit);
 		},
 	);
 });
